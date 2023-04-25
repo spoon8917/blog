@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<x-app-layout>
+    <x-slot name="header">
+        トップページ
+    </x-slot>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -20,6 +24,7 @@
            <div class='post'>
                 <a href="/posts/{{ $post->id }}"><h2 class='Title'>
                         {{ $post->title }}</h2></a>
+                        <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
                <p class='body'>{{ $post->body }}</p>
            </div>
            <form action="/posts/{{$post->id}}" id="form_{{$post->id}}"  method="POST">
@@ -32,6 +37,14 @@
        <div class='paginate'>
             {{ $posts->links() }}
         </div>
+        <p>ログインユーザー::{{ Auth::user()->name }}</p>
+        <div>
+        @foreach($questions as $question)
+            <div><a href="https://teratail.com/questions/{{ $question['id'] }}">
+                    {{ $question['title'] }}
+                </a></div>
+        @endforeach
+    </div>
         <script>
     function deletePost(id) {
         'use strict'
@@ -42,4 +55,5 @@
     }
 </script>
     </body>
+    </x-app-layout>
 </html>
