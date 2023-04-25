@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<x-app-layout>
+    <x-slot name="header">
+        ブログ閲覧画面
+    </x-slot>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -21,10 +25,12 @@
                <h3>本文</h3>
                <p>{{ $post->body }}</p>
            </div>
+           <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
 
        <div class="edit"><a href="/posts/{{ $post->id }}/edit">edit</a></div>
 <div class="footer">
             <a href="/">戻る</a>
         </div>
     </body>
+      </x-app-layout>
 </html>
