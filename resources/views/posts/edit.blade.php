@@ -36,7 +36,7 @@
           
     
 <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/">back</a>
         </div>
     </body>
       </x-app-layout>
