@@ -44,7 +44,7 @@
                     {{ $question['title'] }}
                 </a></div>
         @endforeach
-    </div>
+        </div>
         <script>
     function deletePost(id) {
         'use strict'
